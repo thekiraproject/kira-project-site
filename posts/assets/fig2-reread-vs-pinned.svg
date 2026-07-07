@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <style>
+    .t { fill: #1a1a2e; }
+    .mut { fill: #6b7280; }
+    .stat { fill: #c9d6f5; stroke: #3b6ff5; stroke-width: 1.2; }
+    .statHot { fill: #f5cdb0; stroke: #e07a2f; stroke-width: 1.4; }
+    .dyn { fill: #fff; stroke: #6b7280; stroke-width: 1.2; stroke-dasharray: 4 3; }
+    .lbl { font-size: 11px; fill: #1a1a2e; }
+    .pin { fill: #3b6ff5; }
+  </style>
+  <rect width="860" height="560" fill="#fafaf8"/>
+
+  <text x="40" y="42" class="t" font-size="22" font-weight="700">One compound query, four model calls</text>
+
+  <!-- LEFT PANEL: before -->
+  <text x="40" y="80" class="t" font-size="15" font-weight="700">BEFORE — every call re-reads everything</text>
+  <!-- call rows: [SYS][TOOLS][EXAMPLES][dyn] -->
+  <g>
+    <text x="40" y="112" class="mut" font-size="12">classify</text>
+    <rect x="115" y="96" width="70" height="26" rx="5" class="statHot"/><text x="150" y="113" class="lbl" text-anchor="middle">SYSTEM</text>
+    <rect x="189" y="96" width="60" height="26" rx="5" class="statHot"/><text x="219" y="113" class="lbl" text-anchor="middle">TOOLS</text>
+    <rect x="253" y="96" width="72" height="26" rx="5" class="statHot"/><text x="289" y="113" class="lbl" text-anchor="middle">EXAMPLES</text>
+    <rect x="329" y="96" width="52" height="26" rx="5" class="dyn"/><text x="355" y="113" class="lbl" text-anchor="middle">query</text>
+
+    <text x="40" y="152" class="mut" font-size="12">reason</text>
+    <rect x="115" y="136" width="70" height="26" rx="5" class="statHot"/><text x="150" y="153" class="lbl" text-anchor="middle">SYSTEM</text>
+    <rect x="189" y="136" width="60" height="26" rx="5" class="statHot"/><text x="219" y="153" class="lbl" text-anchor="middle">TOOLS</text>
+    <rect x="253" y="136" width="72" height="26" rx="5" class="statHot"/><text x="289" y="153" class="lbl" text-anchor="middle">EXAMPLES</text>
+    <rect x="329" y="136" width="86" height="26" rx="5" class="dyn"/><text x="372" y="153" class="lbl" text-anchor="middle">query + tools</text>
+
+    <text x="40" y="192" class="mut" font-size="12">examine</text>
+    <rect x="115" y="176" width="70" height="26" rx="5" class="statHot"/><text x="150" y="193" class="lbl" text-anchor="middle">SYSTEM</text>
+    <rect x="189" y="176" width="60" height="26" rx="5" class="statHot"/><text x="219" y="193" class="lbl" text-anchor="middle">TOOLS</text>
+    <rect x="253" y="176" width="72" height="26" rx="5" class="statHot"/><text x="289" y="193" class="lbl" text-anchor="middle">EXAMPLES</text>
+    <rect x="329" y="176" width="110" height="26" rx="5" class="dyn"/><text x="384" y="193" class="lbl" text-anchor="middle">query + reasoning</text>
+
+    <text x="40" y="232" class="mut" font-size="12">synthesize</text>
+    <rect x="115" y="216" width="70" height="26" rx="5" class="statHot"/><text x="150" y="233" class="lbl" text-anchor="middle">SYSTEM</text>
+    <rect x="189" y="216" width="60" height="26" rx="5" class="statHot"/><text x="219" y="233" class="lbl" text-anchor="middle">TOOLS</text>
+    <rect x="253" y="216" width="72" height="26" rx="5" class="statHot"/><text x="289" y="233" class="lbl" text-anchor="middle">EXAMPLES</text>
+    <rect x="329" y="216" width="132" height="26" rx="5" class="dyn"/><text x="395" y="233" class="lbl" text-anchor="middle">query + evidence</text>
+  </g>
+  <!-- re-read annotation -->
+  <path d="M 500 109 C 545 109 545 229 500 229" fill="none" stroke="#e07a2f" stroke-width="2"/>
+  <path d="M 500 229 l 10 -5 l -3 6 l 3 6 z" fill="#e07a2f" transform="rotate(180 505 229)"/>
+  <text x="556" y="158" class="t" font-size="13" font-weight="700" fill="#e07a2f">the same bytes,</text>
+  <text x="556" y="176" class="t" font-size="13" font-weight="700" fill="#e07a2f">re-encoded ×4</text>
+  <text x="556" y="196" class="mut" font-size="12">63% of all prompt bytes</text>
+  <text x="556" y="212" class="mut" font-size="12">were byte-identical repeats</text>
+
+  <!-- divider -->
+  <line x1="40" y1="272" x2="820" y2="272" stroke="#d1d5db" stroke-width="1"/>
+
+  <!-- RIGHT PANEL: after -->
+  <text x="40" y="306" class="t" font-size="15" font-weight="700">AFTER — pinned once, referenced forever</text>
+
+  <!-- pinned column -->
+  <rect x="115" y="326" width="210" height="30" rx="6" class="stat"/>
+  <text x="220" y="345" class="lbl" text-anchor="middle" font-weight="700">SYSTEM ∥ TOOLS ∥ EXAMPLES</text>
+  <circle cx="105" cy="341" r="7" class="pin"/>
+  <text x="105" y="345" fill="#fff" font-size="10" text-anchor="middle" font-weight="700">📌</text>
+  <text x="335" y="338" class="t" font-size="12" font-weight="600" fill="#3b6ff5">encoded ONCE per stage,</text>
+  <text x="335" y="353" class="t" font-size="12" font-weight="600" fill="#3b6ff5">resident for the broker's lifetime</text>
+
+  <!-- calls now only encode suffixes -->
+  <g>
+    <text x="40" y="398" class="mut" font-size="12">classify</text>
+    <path d="M 220 356 L 220 372 L 130 372 L 130 384" fill="none" stroke="#3b6ff5" stroke-width="1.4"/>
+    <rect x="115" y="384" width="30" height="24" rx="5" class="stat" opacity="0.45"/>
+    <rect x="149" y="384" width="52" height="24" rx="5" class="dyn"/><text x="175" y="400" class="lbl" text-anchor="middle">query</text>
+
+    <text x="40" y="438" class="mut" font-size="12">reason</text>
+    <rect x="115" y="424" width="30" height="24" rx="5" class="stat" opacity="0.45"/>
+    <rect x="149" y="424" width="86" height="24" rx="5" class="dyn"/><text x="192" y="440" class="lbl" text-anchor="middle">query + tools</text>
+
+    <text x="40" y="478" class="mut" font-size="12">examine</text>
+    <rect x="115" y="464" width="30" height="24" rx="5" class="stat" opacity="0.45"/>
+    <rect x="149" y="464" width="110" height="24" rx="5" class="dyn"/><text x="204" y="480" class="lbl" text-anchor="middle">query + reasoning</text>
+
+    <text x="40" y="518" class="mut" font-size="12">synthesize</text>
+    <rect x="115" y="504" width="30" height="24" rx="5" class="stat" opacity="0.45"/>
+    <rect x="149" y="504" width="132" height="24" rx="5" class="dyn"/><text x="215" y="520" class="lbl" text-anchor="middle">query + evidence</text>
+  </g>
+  <text x="310" y="402" class="mut" font-size="12">← faded stub = cache lookup;</text>
+  <text x="322" y="418" class="mut" font-size="12">only dashed parts prefill</text>
+
+  <!-- chaining inset -->
+  <rect x="556" y="384" width="264" height="144" rx="10" fill="#fff" stroke="#d1d5db"/>
+  <text x="688" y="408" class="t" font-size="13" font-weight="700" text-anchor="middle">Bonus: the agent loop chains</text>
+  <rect x="576" y="422" width="60" height="18" rx="4" class="stat"/>
+  <rect x="576" y="446" width="60" height="18" rx="4" class="stat" opacity="0.45"/><rect x="640" y="446" width="46" height="18" rx="4" class="dyn"/>
+  <rect x="576" y="470" width="110" height="18" rx="4" class="stat" opacity="0.45"/><rect x="690" y="470" width="46" height="18" rx="4" class="dyn"/>
+  <text x="576" y="512" class="mut" font-size="11.5">turn N+1 extends turn N — transcript</text>
+  <text x="576" y="526" class="mut" font-size="11.5">re-reading collapses to linear cost</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <style>
+    .t { fill: #1a1a2e; }
+    .mut { fill: #6b7280; }
+    .step { fill: #fff; stroke: #3b6ff5; stroke-width: 1.6; }
+    .stop { fill: #fff; stroke: #e07a2f; stroke-width: 2.4; }
+    .ln { stroke: #1a1a2e; stroke-width: 1.6; fill: none; }
+    .lbl { font-size: 13px; fill: #1a1a2e; font-weight: 600; }
+    .sub { font-size: 11px; fill: #6b7280; }
+  </style>
+  <rect width="980" height="520" fill="#fafaf8"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a2e"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="42" class="t" font-size="22" font-weight="700">The optimization has to earn its way on</text>
+  <text x="40" y="66" class="mut" font-size="13.5">Measurement gates enablement — not tuning, not vibes. Default is OFF.</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="100" width="190" height="72" rx="10" class="step"/>
+  <text x="135" y="126" class="lbl" text-anchor="middle">1 · Instrument</text>
+  <text x="135" y="146" class="sub" text-anchor="middle">see the cost first —</text>
+  <text x="135" y="160" class="sub" text-anchor="middle">it was reporting as zero</text>
+
+  <path class="ln" d="M 230 136 L 262 136" marker-end="url(#a)"/>
+
+  <rect x="266" y="100" width="190" height="72" rx="10" class="step"/>
+  <text x="361" y="126" class="lbl" text-anchor="middle">2 · Measure the prize</text>
+  <text x="361" y="146" class="sub" text-anchor="middle">63% byte-stable share</text>
+  <text x="361" y="160" class="sub" text-anchor="middle">bounds the win pre-build</text>
+
+  <path class="ln" d="M 456 136 L 488 136" marker-end="url(#a)"/>
+
+  <rect x="492" y="100" width="200" height="72" rx="10" class="step"/>
+  <text x="592" y="126" class="lbl" text-anchor="middle">3 · Partition BOTH configs</text>
+  <text x="592" y="146" class="sub" text-anchor="middle">ON ≡ OFF prompt structure</text>
+  <text x="592" y="160" class="sub" text-anchor="middle">isolates the one variable</text>
+
+  <path class="ln" d="M 692 136 L 716 136 L 716 154" fill="none" marker-end="url(#a)"/>
+
+  <!-- gate diamond -->
+  <polygon points="838,84 958,154 838,224 718,154" fill="#fff" stroke="#1a1a2e" stroke-width="2"/>
+  <text x="838" y="148" class="lbl" text-anchor="middle">4 · Parity gate</text>
+  <text x="838" y="168" class="sub" text-anchor="middle">1,100+ assertions:</text>
+  <text x="838" y="183" class="sub" text-anchor="middle">outputs byte-equal?</text>
+
+  <!-- FAIL path -->
+  <path class="ln" d="M 838 224 L 838 268" marker-end="url(#a)"/>
+  <text x="848" y="252" class="sub" font-weight="700" fill="#e07a2f" font-size="12">FAIL</text>
+  <rect x="748" y="268" width="180" height="62" rx="10" class="stop"/>
+  <text x="838" y="294" class="lbl" text-anchor="middle" fill="#e07a2f">stays OFF</text>
+  <text x="838" y="314" class="sub" text-anchor="middle">flag-off = byte-identical</text>
+
+  <!-- PASS path: west vertex, drop below row 1, into box 5 -->
+  <path class="ln" d="M 718 154 L 704 154 L 704 246 L 566 246 L 566 268" marker-end="url(#a)"/>
+  <text x="712" y="240" class="sub" font-weight="700" fill="#3b6ff5" font-size="12">PASS — exact</text>
+
+  <rect x="446" y="268" width="240" height="62" rx="10" class="step"/>
+  <text x="566" y="294" class="lbl" text-anchor="middle">5 · Human flips the flag</text>
+  <text x="566" y="314" class="sub" text-anchor="middle">reviews measurements, then ON</text>
+
+  <path class="ln" d="M 446 299 L 414 299" marker-end="url(#a)"/>
+
+  <rect x="160" y="268" width="250" height="62" rx="10" class="step"/>
+  <text x="285" y="288" class="lbl" text-anchor="middle">6 · Flag joins the version key</text>
+  <text x="285" y="306" class="sub" text-anchor="middle">answers never cross cache states;</text>
+  <text x="285" y="320" class="sub" text-anchor="middle">adapter change ⇒ cache flush</text>
+
+  <!-- results banner -->
+  <rect x="40" y="372" width="900" height="56" rx="10" fill="#1a1a2e"/>
+  <text x="64" y="406" fill="#fff" font-size="15" font-weight="700">Measured after activation, end-to-end:</text>
+  <text x="400" y="406" fill="#7ee0a3" font-size="16" font-weight="800">standard −34%</text>
+  <text x="580" y="406" fill="#7ee0a3" font-size="16" font-weight="800">agentic −45%</text>
+  <text x="748" y="406" fill="#7ee0a3" font-size="16" font-weight="800">research −24%</text>
+
+  <text x="40" y="464" class="t" font-size="13.5" font-weight="600">The same gate, pointed at trained adapters, refused four candidates and enabled zero.</text>
+  <text x="40" y="486" class="t" font-size="13.5" font-weight="600">A gate that can only say yes isn't a gate — <tspan fill="#3b6ff5">this one has receipts in both directions.</tspan></text>
+</svg>

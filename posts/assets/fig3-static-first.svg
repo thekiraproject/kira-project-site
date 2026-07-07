@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <style>
+    .t { fill: #1a1a2e; }
+    .mut { fill: #6b7280; }
+    .stat { fill: #c9d6f5; stroke: #3b6ff5; stroke-width: 1.2; }
+    .dyn { fill: #fde8d7; stroke: #e07a2f; stroke-width: 1.2; }
+    .lbl { font-size: 11px; fill: #1a1a2e; }
+  </style>
+  <rect width="860" height="380" fill="#fafaf8"/>
+
+  <text x="40" y="42" class="t" font-size="22" font-weight="700">Defragment the prompt: static first, dynamic last</text>
+  <text x="40" y="66" class="mut" font-size="13.5">A cache can only reuse an unbroken prefix. One dynamic block early in the prompt ends the reusable region.</text>
+
+  <!-- legend -->
+  <rect x="620" y="82" width="14" height="14" rx="3" class="stat"/><text x="640" y="94" class="t" font-size="12.5">static (identical every call)</text>
+  <rect x="620" y="102" width="14" height="14" rx="3" class="dyn"/><text x="640" y="114" class="t" font-size="12.5">dynamic (changes per query)</text>
+
+  <!-- BEFORE bar -->
+  <text x="40" y="112" class="t" font-size="14.5" font-weight="700">Before</text>
+  <g>
+    <rect x="40"  y="126" width="120" height="36" rx="6" class="stat"/><text x="100" y="149" class="lbl" text-anchor="middle">system prompt</text>
+    <rect x="164" y="126" width="90"  height="36" rx="6" class="dyn"/><text x="209" y="149" class="lbl" text-anchor="middle">user context</text>
+    <rect x="258" y="126" width="120" height="36" rx="6" class="stat"/><text x="318" y="149" class="lbl" text-anchor="middle">tool schemas</text>
+    <rect x="382" y="126" width="80"  height="36" rx="6" class="dyn"/><text x="422" y="149" class="lbl" text-anchor="middle">tool results</text>
+    <rect x="466" y="126" width="104" height="36" rx="6" class="stat"/><text x="518" y="149" class="lbl" text-anchor="middle">few-shots</text>
+  </g>
+  <!-- cacheable marker before -->
+  <path d="M 40 172 L 160 172" stroke="#3b6ff5" stroke-width="3"/>
+  <text x="40" y="190" fill="#3b6ff5" font-size="12.5" font-weight="700">cacheable prefix ends here → 26%</text>
+  <text x="286" y="190" class="mut" font-size="12">everything after the first dynamic block is un-reusable — even the static parts</text>
+
+  <!-- arrow -->
+  <path d="M 430 208 L 430 232" stroke="#1a1a2e" stroke-width="2"/>
+  <path d="M 430 232 l -6 -8 h 12 z" fill="#1a1a2e"/>
+  <text x="446" y="226" class="t" font-size="12.5" font-weight="600">same content, reordered — applied in BOTH configurations, cache on and off</text>
+
+  <!-- AFTER bar -->
+  <text x="40" y="262" class="t" font-size="14.5" font-weight="700">After</text>
+  <g>
+    <rect x="40"  y="276" width="120" height="36" rx="6" class="stat"/><text x="100" y="299" class="lbl" text-anchor="middle">system prompt</text>
+    <rect x="164" y="276" width="120" height="36" rx="6" class="stat"/><text x="224" y="299" class="lbl" text-anchor="middle">tool schemas</text>
+    <rect x="288" y="276" width="104" height="36" rx="6" class="stat"/><text x="340" y="299" class="lbl" text-anchor="middle">few-shots</text>
+    <rect x="396" y="276" width="90"  height="36" rx="6" class="dyn"/><text x="441" y="299" class="lbl" text-anchor="middle">user context</text>
+    <rect x="490" y="276" width="80"  height="36" rx="6" class="dyn"/><text x="530" y="299" class="lbl" text-anchor="middle">tool results</text>
+  </g>
+  <path d="M 40 322 L 392 322" stroke="#3b6ff5" stroke-width="3"/>
+  <text x="40" y="340" fill="#3b6ff5" font-size="12.5" font-weight="700">cacheable prefix → 96%</text>
+  <text x="196" y="340" class="mut" font-size="12">(specialist stage, measured)</text>
+  <text x="40" y="364" class="t" font-size="13" font-weight="600">The reorder is the whole trick — and the reason correctness must now be <tspan fill="#e07a2f" font-weight="800">measured</tspan>, not assumed: the model sees a different prompt.</text>
+</svg>
