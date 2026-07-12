@@ -11,6 +11,13 @@ This repository publishes what we measure.
 
 ## Posts
 
+- **[Your AI's logs can be edited. Its evidence shouldn't be.](posts/2026-07-evidence-architecture.md)**
+  (July 2026) — a tamper-evident, two-layer evidence architecture that records
+  not just what the system did but what it couldn't trust or ground: the claims
+  with no supporting source, the degraded inputs used anyway, the blind spots —
+  in a hash-chained record that breaks visibly if anyone edits it.
+  *U.S. patent pending (provisional 64/106,848).*
+
 - **[Your local AI is re-reading its own prompt](posts/2026-07-06-prefill-tax.md)**
   (July 2026) — nearly half of all model time was prefill of text the model
   had already read; how we measured it, removed it (−34% to −45% end-to-end),
