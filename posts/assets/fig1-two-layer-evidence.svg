@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <style>
+    .t{fill:#1a1a2e}.mut{fill:#6b7280}
+    .rec{fill:#c9d6f5;stroke:#3b6ff5;stroke-width:1.2}
+    .view{fill:#d6efe2;stroke:#2fa36b;stroke-width:1.4}
+    .rend{fill:#ffffff;stroke:#6b7280;stroke-width:1.2}
+    .redact{fill:#e3e3df}
+    .lbl{font-size:11.5px;fill:#1a1a2e}
+    .cap{font-size:12px;fill:#6b7280}
+  </style>
+  <rect width="860" height="480" fill="#fafaf8"/>
+  <text x="40" y="42" class="t" font-size="22" font-weight="700">One record, one bound report, two renderings</text>
+  <text x="40" y="66" class="mut" font-size="13.5">The human-readable view carries a hash of the source events — so the report provably can't drift from what happened.</text>
+
+  <!-- RENDERINGS (top) -->
+  <text x="40" y="104" class="t" font-size="13" font-weight="700">Renderings</text>
+  <rect x="150" y="112" width="230" height="60" rx="7" class="rend"/>
+  <text x="265" y="136" class="t" font-size="13" font-weight="700" text-anchor="middle">Operator view</text>
+  <text x="265" y="156" class="cap" text-anchor="middle">full detail — local only</text>
+  <rect x="480" y="112" width="230" height="60" rx="7" class="rend"/>
+  <text x="595" y="132" class="t" font-size="13" font-weight="700" text-anchor="middle">Export view</text>
+  <rect x="512" y="144" width="46" height="12" rx="2" class="redact"/><rect x="566" y="144" width="70" height="12" rx="2" class="redact"/><rect x="644" y="144" width="34" height="12" rx="2" class="redact"/>
+  <text x="595" y="170" class="cap" text-anchor="middle">redacted — safe to share</text>
+
+  <!-- arrows view -> renderings -->
+  <path d="M 340 246 L 265 174" stroke="#2fa36b" stroke-width="1.8" fill="none"/><path d="M 265 174 l 9 3 l -3 -9 z" fill="#2fa36b"/>
+  <path d="M 520 246 L 595 174" stroke="#2fa36b" stroke-width="1.8" fill="none"/><path d="M 595 174 l -6 7 l 9 1 z" fill="#2fa36b"/>
+  <text x="430" y="210" class="cap" text-anchor="middle" font-style="italic">both provably descend from one core</text>
+
+  <!-- LAYER 2 derived view -->
+  <text x="40" y="238" class="t" font-size="13" font-weight="700">Layer 2</text>
+  <rect x="230" y="248" width="400" height="64" rx="8" class="view"/>
+  <text x="430" y="274" class="t" font-size="13.5" font-weight="700" text-anchor="middle">derived reasoning view</text>
+  <text x="430" y="294" class="cap" text-anchor="middle">carries events-hash — a hash computed over the Layer-1 events</text>
+
+  <!-- binding arrow view -> log -->
+  <path d="M 430 312 L 430 372" stroke="#2fa36b" stroke-width="2.2" fill="none" stroke-dasharray="6 4"/>
+  <path d="M 430 372 l -5 -9 h 10 z" fill="#2fa36b"/>
+  <text x="446" y="348" class="t" font-size="12" font-weight="600">binds: hash over source events</text>
+
+  <!-- LAYER 1 canonical log -->
+  <text x="40" y="360" class="t" font-size="13" font-weight="700">Layer 1</text>
+  <text x="150" y="360" class="cap">canonical event log · append-only · hash-chained · written progressively</text>
+  <g>
+    <rect x="150"  y="372" width="96" height="46" rx="6" class="rec"/><text x="198" y="393" class="lbl" text-anchor="middle">event</text><text x="198" y="409" class="cap" text-anchor="middle" font-size="10">#hash</text>
+    <rect x="262"  y="372" width="96" height="46" rx="6" class="rec"/><text x="310" y="393" class="lbl" text-anchor="middle">event</text><text x="310" y="409" class="cap" text-anchor="middle" font-size="10">#hash</text>
+    <rect x="374"  y="372" width="96" height="46" rx="6" class="rec"/><text x="422" y="393" class="lbl" text-anchor="middle">event</text><text x="422" y="409" class="cap" text-anchor="middle" font-size="10">#hash</text>
+    <rect x="486"  y="372" width="96" height="46" rx="6" class="rec"/><text x="534" y="393" class="lbl" text-anchor="middle">event</text><text x="534" y="409" class="cap" text-anchor="middle" font-size="10">#hash</text>
+    <rect x="598"  y="372" width="96" height="46" rx="6" class="rec"/><text x="646" y="393" class="lbl" text-anchor="middle">event</text><text x="646" y="409" class="cap" text-anchor="middle" font-size="10">#hash</text>
+  </g>
+  <!-- chain links -->
+  <g stroke="#3b6ff5" stroke-width="2" fill="#3b6ff5">
+    <path d="M 246 395 L 262 395" fill="none"/><path d="M 262 395 l -8 -4 v 8 z"/>
+    <path d="M 358 395 L 374 395" fill="none"/><path d="M 374 395 l -8 -4 v 8 z"/>
+    <path d="M 470 395 L 486 395" fill="none"/><path d="M 486 395 l -8 -4 v 8 z"/>
+    <path d="M 582 395 L 598 395" fill="none"/><path d="M 598 395 l -8 -4 v 8 z"/>
+  </g>
+  <text x="150" y="446" class="t" font-size="12" font-weight="600" fill="#3b6ff5">each event hashes the one before it — edit any event and every later hash breaks. Tampering is visible.</text>
+</svg>

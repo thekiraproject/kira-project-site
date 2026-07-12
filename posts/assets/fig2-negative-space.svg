@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif">
+  <style>
+    .t{fill:#1a1a2e}.mut{fill:#6b7280}
+    .act{fill:#c9d6f5;stroke:#3b6ff5;stroke-width:1.2}
+    .neg{fill:#fff;stroke:#e07a2f;stroke-width:1.6;stroke-dasharray:4 3}
+    .lbl{font-size:11.5px;fill:#1a1a2e}
+    .cap{font-size:12px;fill:#6b7280}
+    .negt{font-size:11.5px;fill:#b45816}
+  </style>
+  <rect width="860" height="400" fill="#fafaf8"/>
+  <text x="40" y="42" class="t" font-size="22" font-weight="700">Record the gaps, not just the actions</text>
+  <text x="40" y="66" class="mut" font-size="13.5">Conventional logs capture the filled marks — the things that happened. This seals the space between them as evidence too.</text>
+
+  <!-- legend -->
+  <rect x="470" y="82" width="16" height="16" rx="3" class="act"/><text x="492" y="95" class="t" font-size="12.5">action taken (logged everywhere)</text>
+  <rect x="470" y="104" width="16" height="16" rx="3" class="neg"/><text x="492" y="117" class="t" font-size="12.5">negative-space event (the empty quadrant)</text>
+
+  <!-- run timeline -->
+  <text x="40" y="150" class="t" font-size="13" font-weight="700">One run, left to right</text>
+  <line x1="60" y1="196" x2="800" y2="196" stroke="#1a1a2e" stroke-width="2"/>
+  <path d="M 800 196 l -10 -5 v 10 z" fill="#1a1a2e"/>
+
+  <!-- ACTIONS (on the line) -->
+  <g>
+    <rect x="80"  y="176" width="104" height="40" rx="6" class="act"/><text x="132" y="200" class="lbl" text-anchor="middle">classify</text>
+    <rect x="300" y="176" width="104" height="40" rx="6" class="act"/><text x="352" y="200" class="lbl" text-anchor="middle">call tool</text>
+    <rect x="520" y="176" width="104" height="40" rx="6" class="act"/><text x="572" y="200" class="lbl" text-anchor="middle">examine</text>
+    <rect x="680" y="176" width="104" height="40" rx="6" class="act"/><text x="732" y="200" class="lbl" text-anchor="middle">synthesize</text>
+  </g>
+
+  <!-- NEGATIVE-SPACE events (hanging below, in the gaps) -->
+  <g>
+    <!-- gap 1: capability available not used -->
+    <line x1="242" y1="216" x2="242" y2="252" stroke="#e07a2f" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <rect x="188" y="252" width="108" height="46" rx="6" class="neg"/>
+    <text x="242" y="272" class="negt" text-anchor="middle" font-weight="700">available,</text>
+    <text x="242" y="288" class="negt" text-anchor="middle">not used</text>
+
+    <!-- gap 2: degraded input used -->
+    <line x1="462" y1="216" x2="462" y2="252" stroke="#e07a2f" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <rect x="408" y="252" width="108" height="46" rx="6" class="neg"/>
+    <text x="462" y="272" class="negt" text-anchor="middle" font-weight="700">degraded input,</text>
+    <text x="462" y="288" class="negt" text-anchor="middle">used anyway</text>
+
+    <!-- gap 3: claim without source -->
+    <line x1="628" y1="216" x2="628" y2="252" stroke="#e07a2f" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <rect x="574" y="252" width="118" height="46" rx="6" class="neg"/>
+    <text x="633" y="272" class="negt" text-anchor="middle" font-weight="700">claim with</text>
+    <text x="633" y="288" class="negt" text-anchor="middle">no source</text>
+  </g>
+
+  <text x="60" y="344" class="t" font-size="12.5" font-weight="600">Every negative-space event is a first-class, hash-linked record — sealed into the same chain as the actions.</text>
+  <text x="60" y="366" class="cap">Most observability keeps only the blue. The orange is the evidence an audit of an autonomous system actually needs.</text>
+</svg>
