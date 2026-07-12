@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Your AI's logs can be edited. Its evidence shouldn't be."
+---
+
 # Your AI's logs can be edited. Its evidence shouldn't be.
 
 *A tamper-evident, two-layer evidence architecture for a local AI pipeline — and why it records what the system couldn't see, not just what it did. The Kira Project, July 2026. Patent pending (U.S. provisional 64/106,848).*

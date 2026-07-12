@@ -1,0 +1,14 @@
+title: The Kira Project
+description: >-
+  A local-first compound-AI system — one 9B model, ~50 tools, zero cloud
+  inference. This site publishes what we measure.
+theme: minima
+
+# Project Pages site served at https://thekiraproject.github.io/kira-project-site/
+url: "https://thekiraproject.github.io"
+baseurl: "/kira-project-site"
+
+# Keep the raw markdown source and tickets out of the built site
+exclude:
+  - hn-submission-evidence.md
+  - README.md

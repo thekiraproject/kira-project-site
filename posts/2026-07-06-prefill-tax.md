@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Your local AI is re-reading its own prompt"
+---
+
 # Your local AI is re-reading its own prompt
 
 *Measuring — and eliminating — the prefill tax in a local AI pipeline. The Kira Project, July 2026. Patent pending (U.S. provisional 64/105,533).*
