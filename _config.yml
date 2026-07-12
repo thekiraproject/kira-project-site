@@ -4,6 +4,10 @@ description: >-
   inference. This site publishes what we measure.
 theme: minima
 
+# Keep the top nav clean — no page links (the home page lists the posts).
+# minima builds its nav from this list; empty = just the site-title masthead.
+header_pages: []
+
 # Project Pages site served at https://thekiraproject.github.io/kira-project-site/
 url: "https://thekiraproject.github.io"
 baseurl: "/kira-project-site"
